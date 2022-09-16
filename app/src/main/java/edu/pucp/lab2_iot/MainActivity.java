@@ -13,25 +13,29 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+
+    public void IraMonitor(View view){
+        Intent intent= new Intent(MainActivity.this,MonitorMenu.class);
+        startActivity(intent);
+    }
 /*
     public void irAComputadora(View view){
-        Intent intent = new Intent(MainActivity.this,);
+        Intent intent = new Intent(MainActivity.this,MonitorMenu.class);
         startActivity(intent);
     }
 
-    public void IraMonitor(View view){
-        Intent intent= new Intent(MainActivity.this,);
-        startActivity(intent);
-    }
+
     public void IraTeclado(View view){
         Intent intent= new Intent(MainActivity.this,);
         startActivity(intent);
     }
 
 
- */
+
     public void IraReporte(View view){
         Intent intent= new Intent(MainActivity.this,reporte.class);
         startActivity(intent);
     }
+
+ */
 }
