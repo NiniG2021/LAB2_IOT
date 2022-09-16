@@ -22,6 +22,9 @@
             android:label="@string/nuevo_name"
             android:parentActivityName=".ListarComputadoraActivity" />
         <activity
+            android:name=".ListarTecladosActivity"
+            android:exported="false" />
+        <activity
             android:name=".ListarComputadoraActivity"
             android:exported="false"
             android:label="@string/computadoras_name"
@@ -41,6 +44,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
     </application>
 

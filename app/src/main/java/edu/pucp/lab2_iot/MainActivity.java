@@ -21,13 +21,18 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void IraMonitor(View view){
-        Intent intent= new Intent(MainActivity.this,);
+        Intent intent= new Intent(MainActivity.this,MonitorMenu.class);
         startActivity(intent);
     }
-    public void IraTeclado(View view){
-        Intent intent= new Intent(MainActivity.this,);
+/*
+    public void irAComputadora(View view){
+        Intent intent = new Intent(MainActivity.this,MonitorMenu.class);
         startActivity(intent);
     }
+
+
+
+
 
 
     public void IraReporte(View view){
@@ -37,4 +42,11 @@ public class MainActivity extends AppCompatActivity {
 
  */
 
+
+ */
+
+    public void IraTeclado(View view){
+        Intent intent= new Intent(MainActivity.this,ListarTecladosActivity.class);
+        startActivity(intent);
+    }
 }
