@@ -25,10 +25,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void IraTeclado(View view){
-        Intent intent= new Intent(MainActivity.this,);
-        startActivity(intent);
-    }
+
 
 
 
@@ -38,4 +35,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
  */
+
+    public void IraTeclado(View view){
+        Intent intent= new Intent(MainActivity.this,ListarTecladosActivity.class);
+        startActivity(intent);
+    }
 }
