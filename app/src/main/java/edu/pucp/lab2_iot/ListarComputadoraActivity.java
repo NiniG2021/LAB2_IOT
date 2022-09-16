@@ -2,12 +2,16 @@ package edu.pucp.lab2_iot;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.service.controls.actions.FloatAction;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.PopupMenu;
 import android.widget.Toast;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class ListarComputadoraActivity extends AppCompatActivity {
 
@@ -15,6 +19,12 @@ public class ListarComputadoraActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listar_computadora);
+
+        FloatingActionButton floatingActionButton=findViewById(R.id.fab_addPC);
+        floatingActionButton.setOnClickListener(view -> {
+            Intent intent = new Intent(this,FormComputadoraActivity.class);
+            startActivity(intent);
+        });
     }
 
 

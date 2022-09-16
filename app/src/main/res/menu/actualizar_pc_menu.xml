@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/btn_chechy_update"
+        android:icon="@drawable/ic_checkyv1"
+        android:orderInCategory="1"
+        android:title="check"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/btn_delete_update"
+        android:icon="@drawable/ic_delete"
+        android:orderInCategory="2"
+        android:title="delete"
+        app:showAsAction="ifRoom" />
+</menu>

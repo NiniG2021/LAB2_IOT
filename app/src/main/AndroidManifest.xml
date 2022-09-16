@@ -14,11 +14,18 @@
         android:theme="@style/Theme.LAB2_IOT"
         tools:targetApi="31">
         <activity
-            android:name=".ListarComputadoraActivity"
-            android:label="@string/computadoras_name"
-            android:parentActivityName=".MainActivity"
+            android:name=".ActualizarComputadoraActivity"
             android:exported="false" />
-
+        <activity
+            android:name=".FormComputadoraActivity"
+            android:exported="false"
+            android:label="@string/nuevo_name"
+            android:parentActivityName=".ListarComputadoraActivity" />
+        <activity
+            android:name=".ListarComputadoraActivity"
+            android:exported="false"
+            android:label="@string/computadoras_name"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MonitorForm"
             android:exported="false" />
@@ -34,7 +41,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
     </application>
 
