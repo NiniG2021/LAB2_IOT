@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">LAB2_IOT</string>
+    <string name="app_name">EQUIPOS</string>
+    <string name="computadoras_name">Computadoras</string>
+    <string name="nuevo_name">Nuevo</string>
+    <string name="actualizar_name">Actualizar</string>
 </resources>
