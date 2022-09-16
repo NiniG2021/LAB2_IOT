@@ -1,6 +1,7 @@
 package edu.pucp.lab2_iot;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -20,6 +21,9 @@ public class ListarTecladosActivity extends AppCompatActivity {
 
 
 
+
+
+
     @Override
     public boolean onCreateOptionsMenu(@NonNull Menu menu) {
         getMenuInflater().inflate(R.menu.menu_teclado, menu);
@@ -35,7 +39,11 @@ public class ListarTecladosActivity extends AppCompatActivity {
         popupMenu.setOnMenuItemClickListener(menuItem1 -> {
             switch (menuItem1.getItemId()) {
                 case R.id.btn_buscar:
-                    Log.d("msg", "btn_buscar pressed");
+                    AlertDialog.Builder alertDialogBuscar = new AlertDialog.Builder(this);
+                    alertDialogBuscar.setTitle("Teclado");
+                    alertDialogBuscar.setMessage("Activo:");
+                    alertDialogBuscar.show();
+
                     return true;
                 case R.id.btn_total:
                     Log.d("msg", "btn_total pressed");
@@ -47,4 +55,10 @@ public class ListarTecladosActivity extends AppCompatActivity {
         popupMenu.show();
 
     }
+
+
+
+
+
+
 }
