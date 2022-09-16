@@ -11,16 +11,15 @@
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="157dp"
-        android:layout_marginTop="165dp"
+        android:layout_marginTop="171dp"
         android:layout_marginEnd="160dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="15dp"
         android:text="Computadora"
         app:layout_constraintBottom_toTopOf="@+id/teclado_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintHorizontal_bias="0.469"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.516" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/teclado_button"
@@ -30,25 +29,29 @@
         android:text="Teclado"
         app:layout_constraintBottom_toTopOf="@+id/button3"
         app:layout_constraintEnd_toEndOf="@+id/computadora_button"
-        app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="@+id/computadora_button" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/computadora_button"
+        app:layout_constraintTop_toBottomOf="@+id/computadora_button" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="160dp"
         android:layout_height="46dp"
+        android:layout_marginTop="16dp"
         android:text="Monitor"
         app:layout_constraintEnd_toEndOf="@+id/teclado_button"
-        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/teclado_button"
-        tools:layout_editor_absoluteY="348dp" />
+        app:layout_constraintTop_toBottomOf="@+id/teclado_button" />
 
     <Button
         android:id="@+id/button5"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginBottom="109dp"
         android:text="Reporte"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/button3"
         app:layout_constraintStart_toStartOf="@+id/button3"
         app:layout_constraintTop_toBottomOf="@+id/button3" />
