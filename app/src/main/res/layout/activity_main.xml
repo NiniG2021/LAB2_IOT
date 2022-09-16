@@ -14,6 +14,7 @@
         android:layout_marginTop="171dp"
         android:layout_marginEnd="160dp"
         android:layout_marginBottom="15dp"
+        android:onClick="irAComputadora"
         android:text="Computadora"
         app:layout_constraintBottom_toTopOf="@+id/teclado_button"
         app:layout_constraintEnd_toEndOf="parent"

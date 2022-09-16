@@ -8,6 +8,7 @@
         <entry key="..\:/Users/Labtel/LAB2_IOT/app/src/main/res/layout/activity_listar_computadora.xml" value="0.358695652173913" />
         <entry key="..\:/Users/Labtel/LAB2_IOT/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
         <entry key="..\:/Users/Labtel/LAB2_IOT/app/src/main/res/menu/lista_pc_menu.xml" value="0.37083333333333335" />
+        <entry key="..\:/Users/Labtel/LAB2_IOT/app/src/main/res/menu/lista_pc_popup_menu.xml" value="0.37083333333333335" />
       </map>
     </option>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
