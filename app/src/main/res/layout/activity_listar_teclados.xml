@@ -7,15 +7,16 @@
     tools:context=".ListarTecladosActivity">
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="87dp">
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/msjTeclado"
@@ -25,7 +26,23 @@
                 android:paddingTop="50dp"
                 android:text="No hay teclados Ingresados"
                 android:textSize="27sp" />
+
+            <ListView
+                android:id="@+id/lista_Teclados"
+                android:layout_width="match_parent"
+                android:layout_height="640dp" />
         </LinearLayout>
     </ScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_form_crear_teclado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_addpc" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

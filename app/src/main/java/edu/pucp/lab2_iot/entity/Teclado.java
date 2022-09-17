@@ -5,11 +5,33 @@ import java.io.Serializable;
 
 public class Teclado implements Serializable {
 
+
+    public Teclado(String activo, String pcactiv, String marca, Integer anio, String idioma, String modelo) {
+        this.activo = activo;
+        this.pcactiv = pcactiv;
+        this.marca = marca;
+        this.anio = anio;
+        this.idioma = idioma;
+        this.modelo = modelo;
+    }
+
     public String activo;
-    //public Computadora computadora;
+    public String pcactiv;
     public String marca;
     public Integer anio;
     public String idioma;
+
+
+
+    public String getPcactiv() {
+        return pcactiv;
+    }
+
+    public void setPcactiv(String pcactiv) {
+        this.pcactiv = pcactiv;
+    }
+
+
 
     public String getActivo() {
         return activo;
@@ -19,13 +41,6 @@ public class Teclado implements Serializable {
         this.activo = activo;
     }
 
-    //public Computadora getComputadora() {
-    //    return computadora;
-    //}
-
-    //public void setComputadora(Computadora computadora) {
-    //    this.computadora = computadora;
-    //}
 
     public String getMarca() {
         return marca;

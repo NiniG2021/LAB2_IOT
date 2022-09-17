@@ -17,13 +17,15 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this,ListarComputadoraActivity.class);
         startActivity(intent);
     }
-/*
-
 
     public void IraMonitor(View view){
         Intent intent= new Intent(MainActivity.this,MonitorMenu.class);
         startActivity(intent);
     }
+/*
+
+
+
 /*
     public void irAComputadora(View view){
         Intent intent = new Intent(MainActivity.this,MonitorMenu.class);

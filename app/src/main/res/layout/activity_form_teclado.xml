@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FormTecladoActivity">
+
+    <TextView
+        android:id="@+id/textView_teclado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
+        android:layout_marginEnd="185dp"
+        android:text="Teclado"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.103"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editText_Activo_teclado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Activo"
+        android:inputType="textPersonName"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="@+id/textView_teclado"
+        app:layout_constraintTop_toBottomOf="@+id/textView_teclado" />
+
+    <Spinner
+        android:id="@+id/spinner_pc_activo"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="@+id/editText_Activo_teclado"
+        app:layout_constraintTop_toBottomOf="@+id/editText_Activo_teclado" />
+
+    <Spinner
+        android:id="@+id/spinner_marca"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="@+id/spinner_pc_activo"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_pc_activo" />
+
+    <Spinner
+        android:id="@+id/spinner_idioma"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="@+id/spinner_marca"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_marca" />
+
+    <EditText
+        android:id="@+id/editText_anio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="Año"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/spinner_idioma"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_idioma" />
+
+    <EditText
+        android:id="@+id/editTextModelo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="Modelo"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/editText_anio"
+        app:layout_constraintTop_toBottomOf="@+id/editText_anio" />
+</androidx.constraintlayout.widget.ConstraintLayout>

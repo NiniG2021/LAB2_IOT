@@ -3,9 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/btn_tres_puntos"
-        android:icon="@drawable/ic_action_name"
-        android:onClick="btnDesplegable"
-        android:title="item"
+        android:id="@+id/btn_guardar_teclado"
+        android:icon="@drawable/ic_checkyv1"
+        android:title="Guardar"
         app:showAsAction="ifRoom" />
 </menu>

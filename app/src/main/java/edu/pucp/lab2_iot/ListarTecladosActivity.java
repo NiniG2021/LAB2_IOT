@@ -4,12 +4,25 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.PopupMenu;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import edu.pucp.lab2_iot.entity.ListaMonitores;
+import edu.pucp.lab2_iot.entity.ListaTeclados;
+import edu.pucp.lab2_iot.entity.Monitor;
+import edu.pucp.lab2_iot.entity.Teclado;
 
 public class ListarTecladosActivity extends AppCompatActivity {
 
@@ -17,12 +30,32 @@ public class ListarTecladosActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listar_teclados);
+
+        //boton flotante de agregar
+        FloatingActionButton floatingActionButton=findViewById(R.id.btn_form_crear_teclado);
+        floatingActionButton.setOnClickListener(view -> {
+            Intent intent = new Intent(this,FormTecladoActivity.class);
+            startActivity(intent);
+        });
+
+        //listar
+        Teclado pruebatecl = new Teclado("asdsa","aea","Asus",2015,"español","VSG");
+        ListaTeclados.addTeclado(pruebatecl);
+
+
+        if(!ListaTeclados.getListTeclados().isEmpty()){
+            ((TextView) findViewById(R.id.msjTeclado)).setText("");
+            ((TextView) findViewById(R.id.msjTeclado)).setTextSize(0);
+
+            ListView listviewtecl = findViewById(R.id.lista_Teclados);
+            ArrayAdapter<String> array = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,ListaTeclados.descripTeclados());
+            listviewtecl.setAdapter(array);
+        }else{
+            ((TextView) findViewById(R.id.msjTeclado)).setText("No hay teclados registrados");
+            ((TextView) findViewById(R.id.msjTeclado)).setTextSize(27);
+        }
+
     }
-
-
-
-
-
 
     @Override
     public boolean onCreateOptionsMenu(@NonNull Menu menu) {
@@ -30,7 +63,7 @@ public class ListarTecladosActivity extends AppCompatActivity {
         return true;
     }
 
-    public void btnToolAction(MenuItem menuItem) {
+    public void btnDesplegable(MenuItem menuItem) {
         Log.d("msg", "btn_tool");
 
         View view = findViewById(R.id.btn_tres_puntos);
@@ -39,14 +72,10 @@ public class ListarTecladosActivity extends AppCompatActivity {
         popupMenu.setOnMenuItemClickListener(menuItem1 -> {
             switch (menuItem1.getItemId()) {
                 case R.id.btn_buscar:
-                    AlertDialog.Builder alertDialogBuscar = new AlertDialog.Builder(this);
-                    alertDialogBuscar.setTitle("Teclado");
-                    alertDialogBuscar.setMessage("Activo:");
-                    alertDialogBuscar.show();
-
+                    buscarTeclado();
                     return true;
                 case R.id.btn_total:
-                    Log.d("msg", "btn_total pressed");
+                    Toast.makeText(ListarTecladosActivity.this, "Lista de teclados", Toast.LENGTH_SHORT).show();
                     return true;
                 default:
                     return false;
@@ -56,8 +85,32 @@ public class ListarTecladosActivity extends AppCompatActivity {
 
     }
 
+    //Dialog con input
+    String teclado="";
+    public void buscarTeclado() {
+        AlertDialog.Builder alertDialog=new AlertDialog.Builder(this);
+        LayoutInflater inflater = this.getLayoutInflater();
+        alertDialog.setView(inflater.inflate(R.layout.dialog_search_computadora, null));
 
+        TextView inputStr=findViewById(R.id.activo_input);
 
+        alertDialog.setTitle("Teclado");
+        alertDialog.setPositiveButton("Buscar",
+                (dialogInterface, i) ->
+                        Toast.makeText(ListarTecladosActivity.this, "Se esta buscando", Toast.LENGTH_SHORT).show());
+        try{
+            teclado= inputStr.getText().toString();
+            inputStr.setText(teclado.toString());
+        }catch (Exception e){
+            teclado= "nothing";
+        }
+        Log.d("msg",teclado);
+
+        alertDialog.setNegativeButton("Cancelar",
+                (dialogInterface, i) ->
+                        Toast.makeText(ListarTecladosActivity.this, "cancelado", Toast.LENGTH_SHORT).show());
+        alertDialog.show();
+    }
 
 
 
