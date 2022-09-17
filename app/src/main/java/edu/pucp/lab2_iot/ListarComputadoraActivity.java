@@ -1,19 +1,26 @@
 package edu.pucp.lab2_iot;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.service.controls.actions.FloatAction;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.PopupMenu;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class ListarComputadoraActivity extends AppCompatActivity {
+
+    String computadora="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,10 +50,10 @@ public class ListarComputadoraActivity extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem menuItem) {
                 switch (menuItem.getItemId()){
                     case R.id.btn_popupbuscar:
-                        Toast.makeText(ListarComputadoraActivity.this, "buscar", Toast.LENGTH_SHORT).show();
+                        buscarComputadora();
                         return true;
                     case R.id.btn_popuptodo:
-                        Toast.makeText(ListarComputadoraActivity.this, "todo", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ListarComputadoraActivity.this, "Lista de computadoras", Toast.LENGTH_SHORT).show();
                         return true;
                     default:
                         return false;
@@ -54,5 +61,31 @@ public class ListarComputadoraActivity extends AppCompatActivity {
             }
         });
         popupMenu.show();
+    }
+
+    //Dialog con input
+    public void buscarComputadora() {
+        AlertDialog.Builder alertDialog=new AlertDialog.Builder(this);
+        LayoutInflater inflater = this.getLayoutInflater();
+        alertDialog.setView(inflater.inflate(R.layout.dialog_search_computadora, null));
+
+        TextView inputStr=findViewById(R.id.activo_input);
+
+        alertDialog.setTitle("Computadora");
+        alertDialog.setPositiveButton("Buscar",
+                (dialogInterface, i) ->
+                        Toast.makeText(ListarComputadoraActivity.this, "Se esta buscando", Toast.LENGTH_SHORT).show());
+                        try{
+                            computadora= inputStr.getText().toString();
+                            inputStr.setText(computadora.toString());
+                        }catch (Exception e){
+                            computadora= "nothing";
+                        }
+                        Log.d("msg",computadora);
+
+        alertDialog.setNegativeButton("Cancelar",
+                (dialogInterface, i) ->
+                        Toast.makeText(ListarComputadoraActivity.this, "canceled", Toast.LENGTH_SHORT).show());
+        alertDialog.show();
     }
 }

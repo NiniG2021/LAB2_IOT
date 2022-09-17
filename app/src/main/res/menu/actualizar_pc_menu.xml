@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/btn_chechy_update"
-        android:icon="@drawable/ic_checkyv1"
+        android:icon="@drawable/ic_checkyv2"
         android:orderInCategory="1"
         android:title="check"
         app:showAsAction="ifRoom" />
