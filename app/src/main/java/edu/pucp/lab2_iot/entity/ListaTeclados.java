@@ -20,14 +20,32 @@ public class ListaTeclados implements Serializable {
         listTeclados.remove(teclado);
     }
 
-    public static Teclado searchTeclado(String activo){
-       for (Teclado tecl: listTeclados){
-           if (tecl.getActivo().equalsIgnoreCase(activo)){
-               return tecl;
-           }
 
-       }
+    //For search specific Computer
+    public static Integer obtenerPosicion(String activo){
+        for(Teclado tec: listTeclados){
+            if(tec.getActivo().equalsIgnoreCase(activo)){return listTeclados.indexOf(tec);}
+        }
         return null;
+    }
+
+    public static ArrayList<String> searchTeclado(String activo){
+        ArrayList<String> ret = new ArrayList<>();
+        String desc = "";
+        for(Teclado tecl : listTeclados){
+            if(tecl.getActivo().equalsIgnoreCase(activo)){
+                desc="";
+                desc+="Activo: "+tecl.getActivo()+"\n";
+                desc+="PC: "+tecl.getPcactiv()+"\n";
+                desc+="Marca: "+tecl.getMarca()+"\n";
+                desc+="Año: "+tecl.getAnio()+"\n";
+                desc+="Idioma"+tecl.getIdioma()+"\n";
+                desc+="Modelo: "+tecl.getModelo()+"\n";
+                ret.add(desc);
+                return ret;
+            }
+        }
+        return ret;
     }
 
 

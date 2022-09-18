@@ -14,6 +14,8 @@ import android.widget.Spinner;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.pucp.lab2_iot.entity.Computadora;
+import edu.pucp.lab2_iot.entity.ListaComputadoras;
 import edu.pucp.lab2_iot.entity.ListaTeclados;
 import edu.pucp.lab2_iot.entity.Teclado;
 
@@ -30,9 +32,9 @@ public class FormTecladoActivity extends AppCompatActivity {
         List<String> valuesSpinner = new ArrayList<>();
         valuesSpinner.add(0,"PC Activo:");
 
-        //for (Computadora comp:ListaComputadora.getListaComputadora()){
-        //    valuesSpinner.add(comp.getActivo());
-        //}
+        for (Computadora comp: ListaComputadoras.getListaComputadoras()){
+            valuesSpinner.add(comp.getActivo());
+        }
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,valuesSpinner);
         Spinner spinner = findViewById(R.id.spinner_pc_activo);

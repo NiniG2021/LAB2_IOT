@@ -4,8 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -13,12 +15,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
 
 import edu.pucp.lab2_iot.entity.ListaMonitores;
 import edu.pucp.lab2_iot.entity.ListaTeclados;
@@ -39,7 +44,7 @@ public class ListarTecladosActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-
+        //listar teclados
         if(!ListaTeclados.getListTeclados().isEmpty()){
             ((TextView) findViewById(R.id.msjTeclado)).setText("");
             ((TextView) findViewById(R.id.msjTeclado)).setTextSize(0);
@@ -48,6 +53,7 @@ public class ListarTecladosActivity extends AppCompatActivity {
             ArrayAdapter<String> array = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,ListaTeclados.descripTeclados());
             listviewtecl.setAdapter(array);
 
+            //actualizar al hacer click
             listviewtecl.setOnItemClickListener(new AdapterView.OnItemClickListener(){
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     Toast.makeText(ListarTecladosActivity.this, Integer.toString(position), Toast.LENGTH_SHORT).show();
@@ -80,10 +86,33 @@ public class ListarTecladosActivity extends AppCompatActivity {
         popupMenu.setOnMenuItemClickListener(menuItem1 -> {
             switch (menuItem1.getItemId()) {
                 case R.id.btn_buscar:
-                    buscarTeclado();
+                    buscTeclado(menuItem);
                     return true;
                 case R.id.btn_total:
-                    Toast.makeText(ListarTecladosActivity.this, "Lista de teclados", Toast.LENGTH_SHORT).show();
+                    //listar teclados
+                    if(!ListaTeclados.getListTeclados().isEmpty()){
+                        ((TextView) findViewById(R.id.msjTeclado)).setText("");
+                        ((TextView) findViewById(R.id.msjTeclado)).setTextSize(0);
+
+                        ListView listviewtecl = findViewById(R.id.lista_Teclados);
+                        ArrayAdapter<String> array = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,ListaTeclados.descripTeclados());
+                        listviewtecl.setAdapter(array);
+
+                        //actualizar al hacer click
+                        listviewtecl.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                Toast.makeText(ListarTecladosActivity.this, Integer.toString(position), Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(ListarTecladosActivity.this,ActualizarTecladoActivity.class);
+                                intent.putExtra("tecladoActualizar",ListaTeclados.getListTeclados().get(position));
+                                intent.putExtra("posicion",Integer.toString(position));
+                                startActivity(intent);
+                            }
+                        });
+
+                    }else{
+                        ((TextView) findViewById(R.id.msjTeclado)).setText("No hay teclados registrados");
+                        ((TextView) findViewById(R.id.msjTeclado)).setTextSize(27);
+                    }
                     return true;
                 default:
                     return false;
@@ -93,33 +122,62 @@ public class ListarTecladosActivity extends AppCompatActivity {
 
     }
 
-    //Dialog con input
-    String teclado="";
-    public void buscarTeclado() {
-        AlertDialog.Builder alertDialog=new AlertDialog.Builder(this);
-        LayoutInflater inflater = this.getLayoutInflater();
-        alertDialog.setView(inflater.inflate(R.layout.dialog_search_computadora, null));
+    public void buscTeclado(MenuItem menuItem){
 
-        TextView inputStr=findViewById(R.id.activo_input);
 
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
         alertDialog.setTitle("Teclado");
-        alertDialog.setPositiveButton("Buscar",
-                (dialogInterface, i) ->
-                        Toast.makeText(ListarTecladosActivity.this, "Se esta buscando", Toast.LENGTH_SHORT).show());
-        try{
-            teclado= inputStr.getText().toString();
-            inputStr.setText(teclado.toString());
-        }catch (Exception e){
-            teclado= "nothing";
-        }
-        Log.d("msg",teclado);
 
-        alertDialog.setNegativeButton("Cancelar",
-                (dialogInterface, i) ->
-                        Toast.makeText(ListarTecladosActivity.this, "cancelado", Toast.LENGTH_SHORT).show());
+        final EditText input = new EditText(this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_CLASS_TEXT);
+        input.setHint("Activo");
+        alertDialog.setView(input);
+
+
+        alertDialog.setPositiveButton("Buscar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String tecladoSearch = input.getText().toString();
+                ArrayList<String> resultado_busqueda = ListaTeclados.searchTeclado(tecladoSearch);
+                ListView list = findViewById(R.id.lista_Teclados);
+                ArrayAdapter<String> array = new ArrayAdapter<String>(ListarTecladosActivity.this, android.R.layout.simple_list_item_1,resultado_busqueda);
+                list.setAdapter(array);
+
+                if(!resultado_busqueda.isEmpty()){
+                    ((TextView) findViewById(R.id.msjTeclado)).setText("");
+                    ((TextView) findViewById(R.id.msjTeclado)).setTextSize(0);
+                    
+                    Integer posic=ListaTeclados.obtenerPosicion(tecladoSearch);
+                    if(posic!=null){
+                        //actualizar al hacer click
+                        list.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                Toast.makeText(ListarTecladosActivity.this, Integer.toString(posic), Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(ListarTecladosActivity.this,ActualizarTecladoActivity.class);
+                                intent.putExtra("tecladoActualizar",ListaTeclados.getListTeclados().get(posic));
+                                intent.putExtra("posicion",Integer.toString(posic));
+                                startActivity(intent);
+                            }
+                        });
+                    }
+
+
+
+
+                }else{
+                    ((TextView) findViewById(R.id.msjTeclado)).setText("No existe el equipo con activo: "+tecladoSearch);
+                    ((TextView) findViewById(R.id.msjTeclado)).setTextSize(27);
+                }
+            }
+        });
+        alertDialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
         alertDialog.show();
     }
-
-
 
 }
