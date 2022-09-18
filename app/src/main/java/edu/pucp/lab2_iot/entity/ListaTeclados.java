@@ -1,8 +1,9 @@
 package edu.pucp.lab2_iot.entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ListaTeclados {
+public class ListaTeclados implements Serializable {
 
 
     public static ArrayList<Teclado> listTeclados= new ArrayList<>();

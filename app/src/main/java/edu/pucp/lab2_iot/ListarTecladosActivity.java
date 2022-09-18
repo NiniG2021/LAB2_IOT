@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.PopupMenu;
@@ -38,10 +39,6 @@ public class ListarTecladosActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        //listar
-        Teclado pruebatecl = new Teclado("asdsa","aea","Asus",2015,"español","VSG");
-        ListaTeclados.addTeclado(pruebatecl);
-
 
         if(!ListaTeclados.getListTeclados().isEmpty()){
             ((TextView) findViewById(R.id.msjTeclado)).setText("");
@@ -50,6 +47,17 @@ public class ListarTecladosActivity extends AppCompatActivity {
             ListView listviewtecl = findViewById(R.id.lista_Teclados);
             ArrayAdapter<String> array = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,ListaTeclados.descripTeclados());
             listviewtecl.setAdapter(array);
+
+            listviewtecl.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Toast.makeText(ListarTecladosActivity.this, Integer.toString(position), Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(ListarTecladosActivity.this,ActualizarTecladoActivity.class);
+                    intent.putExtra("tecladoActualizar",ListaTeclados.getListTeclados().get(position));
+                    intent.putExtra("posicion",Integer.toString(position));
+                    startActivity(intent);
+                }
+            });
+
         }else{
             ((TextView) findViewById(R.id.msjTeclado)).setText("No hay teclados registrados");
             ((TextView) findViewById(R.id.msjTeclado)).setTextSize(27);
