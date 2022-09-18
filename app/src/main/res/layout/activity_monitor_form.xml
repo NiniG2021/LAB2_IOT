@@ -22,6 +22,7 @@
         android:hint="Activo"
         android:width="330dp"
         android:textSize="24sp"
+        android:inputType="textPersonName"
         />
 
     <Spinner
@@ -60,6 +61,7 @@
         android:hint="Año"
         android:inputType="number"/>
     <EditText
+        android:inputType="textPersonName"
         android:id="@+id/editModelo"
         android:layout_width="330dp"
         android:layout_height="wrap_content"

@@ -32,11 +32,12 @@ public class ComputadoraActualizarActivity extends AppCompatActivity {
         CPU=findViewById(R.id.pc_input_update);
 
         Intent intent=getIntent();
-        posicion = intent.getIntExtra("position",0);
+        posicion = Integer.parseInt(intent.getStringExtra("position"));
+        //posicion = intent.getIntExtra("position");
         Computadora pc= ListaComputadoras.getListaComputadoras().get(posicion);
         activo.setText(pc.getActivo());
         marca.setSelection(pc.getMarca());
-        anho.setText(pc.getAnho());
+        anho.setText(String.valueOf(pc.getAnho()));
         CPU.setText(pc.getCPU());
     }
     //Actualizar new computer
@@ -51,6 +52,12 @@ public class ComputadoraActualizarActivity extends AppCompatActivity {
 
         Computadora pcA= new Computadora(activoStr,marca.getSelectedItemPosition(),Integer.parseInt(anhoStr),cpuStr);
         ListaComputadoras.updateComputadora(posicion,pcA);
+        Intent intent1=new Intent(this,ComputadoraListActivity.class);
+        startActivity(intent1);
+    }
+    //Delete computer
+    public void deleteComputer(MenuItem menuItem){
+        ListaComputadoras.deleteComputadora(ListaComputadoras.getListaComputadoras().get(posicion));
         Intent intent1=new Intent(this,ComputadoraListActivity.class);
         startActivity(intent1);
     }
