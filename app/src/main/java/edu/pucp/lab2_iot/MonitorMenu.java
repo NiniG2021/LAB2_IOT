@@ -28,8 +28,8 @@ public class MonitorMenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_monitor_menu);
-        Monitor prueba = new Monitor("act",0, 1,0,10,"toyoya");
-        ListaMonitores.addMonitor(prueba);
+        //Monitor prueba = new Monitor("act",0, 1,0,10,"toyoya");
+        //ListaMonitores.addMonitor(prueba);
         ListView list = findViewById(R.id.listMonitors);
 
         if(!ListaMonitores.returnList().isEmpty()){
