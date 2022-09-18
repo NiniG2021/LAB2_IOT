@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FormTecladoActivity">
+    tools:context=".ActualizarTecladoActivity">
 
     <TextView
-        android:id="@+id/textView_teclado"
+        android:id="@+id/textView_Teclado_actualiz"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="88dp"
@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText_Activo_teclado"
+        android:id="@+id/editText_activo_actualiz"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -28,52 +28,53 @@
         android:hint="Activo"
         android:inputType="textPersonName"
         android:visibility="visible"
-        app:layout_constraintStart_toStartOf="@+id/textView_teclado"
-        app:layout_constraintTop_toBottomOf="@+id/textView_teclado" />
+        app:layout_constraintStart_toStartOf="@+id/textView_Teclado_actualiz"
+        app:layout_constraintTop_toBottomOf="@+id/textView_Teclado_actualiz" />
 
     <Spinner
-        android:id="@+id/spinner_pc_activo"
+        android:id="@+id/spinner_PC_Activ_Actualiz"
         android:layout_width="210dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        app:layout_constraintStart_toStartOf="@+id/editText_Activo_teclado"
-        app:layout_constraintTop_toBottomOf="@+id/editText_Activo_teclado" />
+        app:layout_constraintStart_toStartOf="@+id/editText_activo_actualiz"
+        app:layout_constraintTop_toBottomOf="@+id/editText_activo_actualiz" />
 
     <Spinner
-        android:id="@+id/spinner_marca"
+        android:id="@+id/spinner_marca_actualiz"
         android:layout_width="210dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        app:layout_constraintStart_toStartOf="@+id/spinner_pc_activo"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_pc_activo" />
+        app:layout_constraintStart_toStartOf="@+id/spinner_PC_Activ_Actualiz"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_PC_Activ_Actualiz" />
 
     <Spinner
-        android:id="@+id/spinner_idioma"
+        android:id="@+id/spinner_idioma_actualiz"
         android:layout_width="210dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        app:layout_constraintStart_toStartOf="@+id/spinner_marca"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_marca" />
+        app:layout_constraintStart_toStartOf="@+id/spinner_marca_actualiz"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_marca_actualiz"/>
 
     <EditText
-        android:id="@+id/editText_anio"
+        android:id="@+id/editText_Anio_Actualizad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:ems="10"
         android:hint="Año"
         android:inputType="number"
-        app:layout_constraintStart_toStartOf="@+id/spinner_idioma"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_idioma" />
+        app:layout_constraintStart_toStartOf="@+id/spinner_idioma_actualiz"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_idioma_actualiz" />
 
     <EditText
-        android:id="@+id/editTextModelo"
+        android:id="@+id/editText_modelo_actualiz"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:ems="10"
         android:hint="Modelo"
         android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="@+id/editText_anio"
-        app:layout_constraintTop_toBottomOf="@+id/editText_anio" />
+        app:layout_constraintStart_toStartOf="@+id/editText_Anio_Actualizad"
+        app:layout_constraintTop_toBottomOf="@+id/editText_Anio_Actualizad" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

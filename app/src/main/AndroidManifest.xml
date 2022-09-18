@@ -14,10 +14,16 @@
         android:theme="@style/Theme.LAB2_IOT"
         tools:targetApi="31">
         <activity
+            android:name=".ActualizarTecladoActivity"
+            android:exported="false"
+            android:label="@string/actualizar_name"
+            android:parentActivityName=".ListarTecladosActivity"/>
+
+        <activity
             android:name=".FormTecladoActivity"
             android:exported="false"
             android:label="@string/nuevo_name"
-            android:parentActivityName=".ListarTecladosActivity"/>
+            android:parentActivityName=".ListarTecladosActivity" />
         <activity
             android:name=".ActualizarComputadoraActivity"
             android:exported="false" />
@@ -30,7 +36,7 @@
             android:name=".ListarTecladosActivity"
             android:exported="false"
             android:label="@string/teclados_name"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".ListarComputadoraActivity"
             android:exported="false"

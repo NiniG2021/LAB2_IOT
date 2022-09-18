@@ -6,7 +6,7 @@ import java.io.Serializable;
 public class Teclado implements Serializable {
 
 
-    public Teclado(String activo, String pcactiv, String marca, Integer anio, String idioma, String modelo) {
+    public Teclado(String activo, String pcactiv, String marca, String anio, String idioma, String modelo) {
         this.activo = activo;
         this.pcactiv = pcactiv;
         this.marca = marca;
@@ -18,7 +18,7 @@ public class Teclado implements Serializable {
     public String activo;
     public String pcactiv;
     public String marca;
-    public Integer anio;
+    public String anio;
     public String idioma;
 
 
@@ -50,11 +50,11 @@ public class Teclado implements Serializable {
         this.marca = marca;
     }
 
-    public Integer getAnio() {
+    public String getAnio() {
         return anio;
     }
 
-    public void setAnio(Integer anio) {
+    public void setAnio(String anio) {
         this.anio = anio;
     }
 
