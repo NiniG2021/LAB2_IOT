@@ -11,9 +11,11 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import edu.pucp.lab2_iot.entity.Computadora;
 import edu.pucp.lab2_iot.entity.ListaComputadoras;
 import edu.pucp.lab2_iot.entity.ListaMonitores;
 import edu.pucp.lab2_iot.entity.ListaTeclados;
+import edu.pucp.lab2_iot.entity.Monitor;
 
 
 public class reporte extends AppCompatActivity {
@@ -26,8 +28,8 @@ public class reporte extends AppCompatActivity {
 
 
         if(ListaComputadoras.getListaComputadoras().size() >0){
-            ((TextView)findViewById(R.id.reporte_computadoras)).setText(ListaComputadoras.getListaComputadoras().size());
-
+            String cantidad_computadoras = "-Total: "+ ListaComputadoras.getListaComputadoras().size();
+            ((TextView)findViewById(R.id.reporte_computadoras)).setText(cantidad_computadoras);
 
         }else{
             TextView textView= findViewById(R.id.reporte_computadoras);
