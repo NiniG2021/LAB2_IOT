@@ -36,7 +36,7 @@ public class ComputadoraActualizarActivity extends AppCompatActivity {
         Computadora pc= ListaComputadoras.getListaComputadoras().get(posicion);
         activo.setText(pc.getActivo());
         marca.setSelection(pc.getMarca());
-        anho.setText(pc.getAnho());
+        anho.setText(String.valueOf(pc.getAnho()));
         CPU.setText(pc.getCPU());
     }
     //Actualizar new computer
