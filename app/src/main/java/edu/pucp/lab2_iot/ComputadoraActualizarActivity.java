@@ -1,7 +1,9 @@
 package edu.pucp.lab2_iot;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -57,9 +59,26 @@ public class ComputadoraActualizarActivity extends AppCompatActivity {
     }
     //Delete computer
     public void deleteComputer(MenuItem menuItem){
-        ListaComputadoras.deleteComputadora(ListaComputadoras.getListaComputadoras().get(posicion));
-        Intent intent1=new Intent(this,ComputadoraListActivity.class);
-        startActivity(intent1);
+        AlertDialog.Builder alertDialog=new AlertDialog.Builder(this);
+        alertDialog.setTitle("Esta seguro de eliminar?");
+        alertDialog.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                ListaComputadoras.deleteComputadora(ListaComputadoras.getListaComputadoras().get(posicion));
+                Toast.makeText(ComputadoraActualizarActivity.this, "Eliminado", Toast.LENGTH_SHORT).show();
+                Intent intent1=new Intent(ComputadoraActualizarActivity.this,ComputadoraListActivity.class);
+                startActivity(intent1);
+            }
+        });
+        alertDialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        alertDialog.show();
+
+
     }
 
     //VINCULAMOS EL MENU CON EL ACTIVITY
