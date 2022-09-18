@@ -22,11 +22,13 @@ public class reporte extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reporte);
 
+        //esto no
         ListaMonitores listaMonitores = new ListaMonitores();
         ListaTeclados listaTeclados = new ListaTeclados();
         ListaComputadoras listaComputadoras = new ListaComputadoras();
 
-
+        //Ejemplo
+        ((TextView) findViewById(R.id.reporte_computadoras)).setText(ListaComputadoras.getListaComputadoras().size());
 
 
 
