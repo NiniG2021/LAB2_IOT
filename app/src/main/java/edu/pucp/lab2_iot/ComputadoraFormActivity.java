@@ -47,15 +47,30 @@ public class ComputadoraFormActivity extends AppCompatActivity {
         String anhoStr=anho.getText().toString();
         String cpuStr=CPU.getText().toString();
 
-        if(activoStr.isEmpty()|| anhoStr.isEmpty() || cpuStr.isEmpty()){
+        boolean saveAble = false;
+
+        if(activoStr.isEmpty()){
+            activo.setError("Ingrese activo");
+            saveAble=false;
+        }else if(anhoStr.isEmpty()){
+            anho.setError("Ingrese año");
+            saveAble=false;
+        }else if(cpuStr.isEmpty()){
+            saveAble=false;
+            CPU.setError("Ingrese CPU");
             Toast.makeText(this, "Debe llenar todos los campos", Toast.LENGTH_SHORT).show();
+        }else{
+            saveAble=true;
         }
 
-        Computadora computadora=new Computadora(activoStr,marca.getSelectedItemPosition(),Integer.parseInt(anhoStr),cpuStr);
-        ListaComputadoras.addComputadora(computadora);
+        if(saveAble){
+            Computadora computadora=new Computadora(activoStr,marca.getSelectedItemPosition(),Integer.parseInt(anhoStr),cpuStr);
+            ListaComputadoras.addComputadora(computadora);
 
-        Intent intent=new Intent(this,ComputadoraListActivity.class);
-        startActivity(intent);
+            Intent intent=new Intent(this,ComputadoraListActivity.class);
+            startActivity(intent);
+        }
+
 
     }
 

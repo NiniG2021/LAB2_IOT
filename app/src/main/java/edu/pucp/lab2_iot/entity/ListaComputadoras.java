@@ -13,11 +13,21 @@ public class ListaComputadoras {
     public static void deleteComputadora(Computadora computadora){listaComputadoras.remove(computadora);}
 
     //For search specific Computer
-    public static Computadora searchComputadora(String activo){
-        for(Computadora n: listaComputadoras){
-            if(n.getActivo().equalsIgnoreCase(activo)){return n;}
+    public static ArrayList<String>  searchComputadora(String activo){
+        ArrayList<String> lista = new ArrayList<>();
+        String temp = "";
+        for(Computadora n : listaComputadoras){
+            if(n.getActivo().equalsIgnoreCase(activo)){
+                temp="";
+                temp+="Activo: "+n.getActivo()+"\n";
+                temp+="Marca: "+marcaValue(n.getMarca())+"\n";
+                temp+="Año: "+n.getAnho()+"\n";
+                temp+="CPU: "+n.getCPU()+"\n";
+                lista.add(temp);
+                return lista;
+            }
         }
-        return null;
+        return lista;
     }
 
     private static String marcaValue(int i){
@@ -40,6 +50,13 @@ public class ListaComputadoras {
             lista.add(temp);
         }
         return lista;
+    }
+    //For find the orden
+    public static Integer obtenerPosicion(String activo){
+        for(Computadora computadora: listaComputadoras){
+            if(computadora.getActivo().equalsIgnoreCase(activo)){return listaComputadoras.indexOf(computadora);}
+        }
+        return null;
     }
 
     public static void updateComputadora(int posicion,Computadora computadora){
