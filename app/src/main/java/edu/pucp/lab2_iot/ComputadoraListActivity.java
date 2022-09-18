@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.service.controls.actions.FloatAction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -13,7 +12,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
@@ -21,14 +19,9 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
-
 import edu.pucp.lab2_iot.entity.ListaComputadoras;
-import edu.pucp.lab2_iot.entity.ListaTeclados;
 
-public class ListarComputadoraActivity extends AppCompatActivity {
+public class ComputadoraListActivity extends AppCompatActivity {
 
     String computadora="";
 
@@ -40,7 +33,8 @@ public class ListarComputadoraActivity extends AppCompatActivity {
         //Floating Button
         FloatingActionButton floatingActionButton=findViewById(R.id.fab_addPC);
         floatingActionButton.setOnClickListener(view -> {
-            Intent intent = new Intent(this,FormComputadoraActivity.class);
+            Intent intent = new Intent(this, ComputadoraFormActivity.class);
+            intent.putExtra("actionForm","createComputer");
             startActivity(intent);
         });
 
@@ -60,9 +54,10 @@ public class ListarComputadoraActivity extends AppCompatActivity {
 
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Intent intent = new Intent(ListarComputadoraActivity.this,ActualizarComputadoraActivity.class);
-                    intent.putExtra("computerToUpdate", ListaComputadoras.getListaComputadoras().get(position));
+                    Intent intent = new Intent(ComputadoraListActivity.this, ComputadoraActualizarActivity.class);
+                    //intent.putExtra("computerToUpdate", ListaComputadoras.getListaComputadoras().get(position));
                     intent.putExtra("position",Integer.toString(position));
+                    //intent.putExtra("actionForm","updateComputer");
                     startActivity(intent);
                 }
             });
@@ -88,7 +83,7 @@ public class ListarComputadoraActivity extends AppCompatActivity {
                         buscarComputadora();
                         return true;
                     case R.id.btn_popuptodo:
-                        Toast.makeText(ListarComputadoraActivity.this, "Lista de computadoras", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ComputadoraListActivity.this, "Lista de computadoras", Toast.LENGTH_SHORT).show();
                         return true;
                     default:
                         return false;
@@ -109,7 +104,7 @@ public class ListarComputadoraActivity extends AppCompatActivity {
         alertDialog.setTitle("Computadora");
         alertDialog.setPositiveButton("Buscar",
                 (dialogInterface, i) ->
-                        Toast.makeText(ListarComputadoraActivity.this, "Se esta buscando", Toast.LENGTH_SHORT).show());
+                        Toast.makeText(ComputadoraListActivity.this, "Se esta buscando", Toast.LENGTH_SHORT).show());
                         try{
                             computadora= inputStr.getText().toString();
                             inputStr.setText(computadora.toString());
@@ -120,7 +115,7 @@ public class ListarComputadoraActivity extends AppCompatActivity {
 
         alertDialog.setNegativeButton("Cancelar",
                 (dialogInterface, i) ->
-                        Toast.makeText(ListarComputadoraActivity.this, "canceled", Toast.LENGTH_SHORT).show());
+                        Toast.makeText(ComputadoraListActivity.this, "canceled", Toast.LENGTH_SHORT).show());
         alertDialog.show();
     }
 }

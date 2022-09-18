@@ -3,21 +3,6 @@ package edu.pucp.lab2_iot.entity;
 import java.io.Serializable;
 
 public class Computadora implements Serializable {
-
-    public Computadora(String activo, String marca, int anho, String CPU) {
-        this.activo = activo;
-        this.marca = marca;
-        this.anho = anho;
-        this.CPU = CPU;
-    }
-
-    private String activo;
-    private String marca;
-    private int anho;
-    private String CPU;
-
-
-
     public String getActivo() {
         return activo;
     }
@@ -26,11 +11,11 @@ public class Computadora implements Serializable {
         this.activo = activo;
     }
 
-    public String getMarca() {
+    public int getMarca() {
         return marca;
     }
 
-    public void setMarca(String marca) {
+    public void setMarca(int marca) {
         this.marca = marca;
     }
 
@@ -49,4 +34,18 @@ public class Computadora implements Serializable {
     public void setCPU(String CPU) {
         this.CPU = CPU;
     }
+
+    public Computadora(String activo, int marca, int anho, String CPU) {
+        this.activo = activo;
+        this.marca = marca;
+        this.anho = anho;
+        this.CPU = CPU;
+    }
+
+    private String activo;
+    private int marca;
+    private int anho;
+    private String CPU;
+
+
 }

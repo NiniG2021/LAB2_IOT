@@ -34,4 +34,27 @@ public class ListaComputadoras {
         }
         return lista;
     }
+
+    public static void updateComputadora(int posicion,Computadora computadora){
+        int i=0;
+        for(Computadora n: listaComputadoras){
+            if(i==posicion){
+                n.setActivo(computadora.getActivo());
+                n.setMarca(computadora.getMarca());
+                n.setAnho(computadora.getAnho());
+                n.setCPU(computadora.getCPU());
+                break;
+            }
+            i++;
+        }
+    }
+
+    public static boolean existComutadora(String activo){
+        for(Computadora i : listaComputadoras){
+            if(i.getActivo().equalsIgnoreCase(activo)){
+                return true;
+            }
+        }
+        return false;
+    }
 }

@@ -6,5 +6,6 @@
         android:id="@+id/btn_checky"
         android:icon="@drawable/ic_checkyv2"
         android:title="checky"
+        android:onClick="saveComputer"
         app:showAsAction="ifRoom" />
 </menu>

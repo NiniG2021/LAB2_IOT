@@ -4,6 +4,64 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ActualizarComputadoraActivity">
+    tools:context=".ComputadoraFormActivity">
+
+    <TextView
+        android:id="@+id/textcomputadora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/computadoras_name"
+        android:textSize="20sp"
+        android:textStyle="normal|bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/pc_activo_update"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="100dp"
+        android:ems="10"
+        android:hint="Activo"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/textcomputadora"
+        app:layout_constraintStart_toStartOf="@+id/textcomputadora"
+        app:layout_constraintTop_toBottomOf="@+id/textcomputadora" />
+
+    <EditText
+        android:id="@+id/pc_anho_update"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Año"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/pc_marca_update"
+        app:layout_constraintStart_toStartOf="@+id/pc_marca_update"
+        app:layout_constraintTop_toBottomOf="@+id/pc_marca_update" />
+
+    <EditText
+        android:id="@+id/pc_input_update"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="CPU"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/pc_anho_update"
+        app:layout_constraintStart_toStartOf="@+id/pc_anho_update"
+        app:layout_constraintTop_toBottomOf="@+id/pc_anho_update" />
+
+    <Spinner
+        android:id="@+id/pc_marca_update"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:entries="@array/listaMarcas"
+        app:layout_constraintEnd_toEndOf="@+id/pc_activo_update"
+        app:layout_constraintStart_toStartOf="@+id/pc_activo_update"
+        app:layout_constraintTop_toBottomOf="@+id/pc_activo_update" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

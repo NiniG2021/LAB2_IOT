@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FormComputadoraActivity">
+    tools:context=".ComputadoraFormActivity">
 
     <TextView
         android:id="@+id/textView"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/pc_activo_input"
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_marginTop="100dp"
@@ -31,37 +31,37 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
-        android:id="@+id/editTextNumber"
+        android:id="@+id/pc_anho_input"
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Año"
         android:inputType="number"
-        app:layout_constraintEnd_toEndOf="@+id/spinner"
-        app:layout_constraintStart_toStartOf="@+id/spinner"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        app:layout_constraintEnd_toEndOf="@+id/pc_marca_spinner"
+        app:layout_constraintStart_toStartOf="@+id/pc_marca_spinner"
+        app:layout_constraintTop_toBottomOf="@+id/pc_marca_spinner" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/pc_cpu_input"
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="CPU"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/editTextNumber"
-        app:layout_constraintStart_toStartOf="@+id/editTextNumber"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
+        app:layout_constraintEnd_toEndOf="@+id/pc_anho_input"
+        app:layout_constraintStart_toStartOf="@+id/pc_anho_input"
+        app:layout_constraintTop_toBottomOf="@+id/pc_anho_input" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/pc_marca_spinner"
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:entries="@array/listaMarcas"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintEnd_toEndOf="@+id/pc_activo_input"
+        app:layout_constraintStart_toStartOf="@+id/pc_activo_input"
+        app:layout_constraintTop_toBottomOf="@+id/pc_activo_input" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

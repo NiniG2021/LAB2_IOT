@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
     public void irAComputadora(View view){
-        Intent intent = new Intent(MainActivity.this,ListarComputadoraActivity.class);
+        Intent intent = new Intent(MainActivity.this, ComputadoraListActivity.class);
         startActivity(intent);
     }
 

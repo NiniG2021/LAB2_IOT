@@ -16,8 +16,8 @@
         <item>ZOTAC</item>
         <item>HUAWEI</item>
         <item>Otro</item>
-
     </string-array>
+
     <string name="teclados_name">Teclados</string>
     <string name="Marcas">dropDownMenuExample</string>
     <string-array name="Marcas">

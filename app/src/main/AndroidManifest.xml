@@ -25,20 +25,22 @@
             android:label="@string/nuevo_name"
             android:parentActivityName=".ListarTecladosActivity" />
         <activity
-            android:name=".ActualizarComputadoraActivity"
+            android:name=".ComputadoraActualizarActivity"
+            android:label="@string/actualizar_name"
+            android:parentActivityName=".ComputadoraListActivity"
             android:exported="false" />
         <activity
-            android:name=".FormComputadoraActivity"
+            android:name=".ComputadoraFormActivity"
             android:exported="false"
             android:label="@string/nuevo_name"
-            android:parentActivityName=".ListarComputadoraActivity" />
+            android:parentActivityName=".ComputadoraListActivity" />
         <activity
             android:name=".ListarTecladosActivity"
             android:exported="false"
             android:label="@string/teclados_name"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".ListarComputadoraActivity"
+            android:name=".ComputadoraListActivity"
             android:exported="false"
             android:label="@string/computadoras_name"
             android:parentActivityName=".MainActivity" />
