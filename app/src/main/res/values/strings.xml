@@ -3,5 +3,20 @@
     <string name="computadoras_name">Computadoras</string>
     <string name="nuevo_name">Nuevo</string>
     <string name="actualizar_name">Actualizar</string>
+    <string-array name="listaMarcas">
+        <item>ACER</item>
+        <item>ASUS</item>
+        <item>CORSAIR</item>
+        <item>DELL</item>
+        <item>HP</item>
+        <item>LENOVO</item>
+        <item>APPLE</item>
+        <item>MEDION</item>
+        <item>MSI</item>
+        <item>ZOTAC</item>
+        <item>HUAWEI</item>
+        <item>Otro</item>
+
+    </string-array>
     <string name="teclados_name">Teclados</string>
 </resources>

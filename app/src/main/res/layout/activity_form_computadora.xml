@@ -59,6 +59,7 @@
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
+        android:entries="@array/listaMarcas"
         app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
         app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
