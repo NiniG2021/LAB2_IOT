@@ -22,30 +22,12 @@ public class MainActivity extends AppCompatActivity {
         Intent intent= new Intent(MainActivity.this,MonitorMenu.class);
         startActivity(intent);
     }
-/*
-
-
-
-/*
-    public void irAComputadora(View view){
-        Intent intent = new Intent(MainActivity.this,MonitorMenu.class);
-        startActivity(intent);
-    }
-
-
-
-
 
 
     public void IraReporte(View view){
         Intent intent= new Intent(MainActivity.this,reporte.class);
         startActivity(intent);
     }
-
- */
-
-
-
 
     public void IraTeclado(View view){
         Intent intent= new Intent(MainActivity.this,ListarTecladosActivity.class);

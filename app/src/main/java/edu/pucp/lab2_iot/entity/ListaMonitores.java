@@ -9,6 +9,8 @@ public class ListaMonitores {
 
     public static ArrayList<Monitor> listaMonitores = new ArrayList<>();
 
+    public static ArrayList<Monitor> getlistamonitores(){return listaMonitores;}
+
     public static ArrayList<String> descpMonitores = new ArrayList<>();
 
     public static ArrayList<Monitor> returnList(){
