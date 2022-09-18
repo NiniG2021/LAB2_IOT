@@ -3,7 +3,7 @@ package edu.pucp.lab2_iot.entity;
 import java.io.Serializable;
 
 public class Monitor implements Serializable {
-    public Monitor(String activo, String pcActivo, String marca, double pulgadas, int ano, String modelo) {
+    public Monitor(String activo, int pcActivo, int marca, int pulgadas, int ano, String modelo) {
         this.activo = activo;
         this.pcActivo = pcActivo;
         this.marca = marca;
@@ -13,9 +13,9 @@ public class Monitor implements Serializable {
     }
 
     private String activo;
-    private String  pcActivo;
-    private String marca;
-    private double pulgadas;
+    private int  pcActivo;
+    private int marca;
+    private int pulgadas;
     private int ano;
     private String modelo;
 
@@ -30,27 +30,27 @@ public class Monitor implements Serializable {
         this.activo = activo;
     }
 
-    public String getPcActivo() {
+    public int getPcActivo() {
         return pcActivo;
     }
 
-    public void setPcActivo(String pcActivo) {
+    public void setPcActivo(int pcActivo) {
         this.pcActivo = pcActivo;
     }
 
-    public String getMarca() {
+    public int getMarca() {
         return marca;
     }
 
-    public void setMarca(String marca) {
+    public void setMarca(int marca) {
         this.marca = marca;
     }
 
-    public double getPulgadas() {
+    public int getPulgadas() {
         return pulgadas;
     }
 
-    public void setPulgadas(double pulgadas) {
+    public void setPulgadas(int pulgadas) {
         this.pulgadas = pulgadas;
     }
 

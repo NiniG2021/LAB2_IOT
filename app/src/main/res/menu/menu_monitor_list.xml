@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/btMenu_buscar"
+        android:title="Buscar"
+        android:onClick="searchMonitor"/>
+    <item
+        android:id="@+id/bnMenu_todo"
+        android:title="Todo"
+        android:onClick="showAll"/>
+</menu>

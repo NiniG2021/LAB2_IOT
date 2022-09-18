@@ -19,4 +19,19 @@
 
     </string-array>
     <string name="teclados_name">Teclados</string>
+    <string name="Marcas">dropDownMenuExample</string>
+    <string-array name="Marcas">
+        <item>Apple</item>
+        <item>Dell</item>
+        <item>LG</item>
+        <item>Samsung</item>
+        <item>Microsoft</item>
+    </string-array>
+    <string name="Pulgadas">dropDownMenuExample</string>
+    <string-array name="Pulgadas">
+        <item>14</item>
+        <item>17</item>
+        <item>20</item>
+        <item>24</item>
+    </string-array>
 </resources>
