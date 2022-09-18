@@ -54,6 +54,7 @@ public class ComputadoraListActivity extends AppCompatActivity {
 
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Toast.makeText(ComputadoraListActivity.this, Integer.toString(position), Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(ComputadoraListActivity.this, ComputadoraActualizarActivity.class);
                     //intent.putExtra("computerToUpdate", ListaComputadoras.getListaComputadoras().get(position));
                     intent.putExtra("position",Integer.toString(position));

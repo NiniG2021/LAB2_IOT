@@ -20,6 +20,13 @@ public class ListaComputadoras {
         return null;
     }
 
+    private static String marcaValue(int i){
+        String marcas[] = new String[]{
+                "ACER","ASUS", "CORSAIR", "DELL", "HP","LENOVO","APPLE", "MEDION", "MSI", "ZOTAC", "HUAWEI", "Otro"
+        };
+        return marcas[i];
+    }
+
     //To send computer list
     public static ArrayList<String> returnComputadoras(){
         ArrayList<String> lista=new ArrayList<>();
@@ -27,7 +34,7 @@ public class ListaComputadoras {
         for(Computadora n: listaComputadoras){
             temp="";
             temp+="Activo: "+n.getActivo()+"\n";
-            temp+="Marca: "+n.getMarca()+"\n";
+            temp+="Marca: "+marcaValue(n.getMarca())+"\n";
             temp+="Año: "+n.getAnho()+"\n";
             temp+="CPU: "+n.getCPU()+"\n";
             lista.add(temp);
@@ -36,17 +43,13 @@ public class ListaComputadoras {
     }
 
     public static void updateComputadora(int posicion,Computadora computadora){
-        int i=0;
-        for(Computadora n: listaComputadoras){
-            if(i==posicion){
-                n.setActivo(computadora.getActivo());
-                n.setMarca(computadora.getMarca());
-                n.setAnho(computadora.getAnho());
-                n.setCPU(computadora.getCPU());
-                break;
-            }
-            i++;
-        }
+
+        Computadora n=ListaComputadoras.getListaComputadoras().get(posicion);
+        n.setActivo(computadora.getActivo());
+        n.setMarca(computadora.getMarca());
+        n.setAnho(computadora.getAnho());
+        n.setCPU(computadora.getCPU());
+
     }
 
     public static boolean existComutadora(String activo){
