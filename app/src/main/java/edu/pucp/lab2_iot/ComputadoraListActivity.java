@@ -144,20 +144,23 @@ public class ComputadoraListActivity extends AppCompatActivity {
 
     //Computer list
     public  void listComputer(){
+        //get the list UI element
+        ListView listView=findViewById(R.id.lista_Computadoras);
+        //Create an adapter with values of list that already been created
+        ArrayAdapter<String> arrayAdapter= new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,ListaComputadoras.returnComputadoras());
+        //Put the adapter on the UI list element
+        listView.setAdapter(arrayAdapter);
+
         if(!ListaComputadoras.getListaComputadoras().isEmpty()){
             //cleaning the message notification
             TextView textView= findViewById(R.id.msjListComputadora);
             textView.setText("");
             textView.setTextSize(0);
 
-            //get the list UI element
-            ListView listView=findViewById(R.id.lista_Computadoras);
-            //Create an adapter with values of list that already been created
-            ArrayAdapter<String> arrayAdapter= new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,ListaComputadoras.returnComputadoras());
-            //Put the adapter on the UI list element
-            listView.setAdapter(arrayAdapter);
-
-
+        }else{
+            TextView textView= findViewById(R.id.msjListComputadora);
+            textView.setText("No hay computadoras ingresadas");
+            textView.setTextSize(27);
         }
     }
 

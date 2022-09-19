@@ -40,7 +40,7 @@ public class ComputadoraActualizarActivity extends AppCompatActivity {
         //posicion = intent.getIntExtra("position");
         Computadora pc= ListaComputadoras.getListaComputadoras().get(posicion);
         activo.setText(pc.getActivo());
-        marca.setSelection(pc.getMarca());
+        marca.setSelection(pc.getMarca()+1);
         anho.setText(String.valueOf(pc.getAnho()));
         CPU.setText(pc.getCPU());
     }
@@ -49,14 +49,16 @@ public class ComputadoraActualizarActivity extends AppCompatActivity {
         String activoStr=activo.getText().toString();
         String anhoStr=anho.getText().toString();
         String cpuStr=CPU.getText().toString();
+        String marcaStr= marca.getSelectedItem().toString();
 
-        if(activoStr.isEmpty()  || anhoStr.isEmpty() || cpuStr.isEmpty()){
+        if(activoStr.isEmpty()  || anhoStr.isEmpty() || cpuStr.isEmpty() || marcaStr.equals("Marca:")){
             Toast.makeText(this, "Debe llenar todos los campos", Toast.LENGTH_SHORT).show();
-        }
+        } else {
 
-        Computadora pcA= new Computadora(activoStr,marca.getSelectedItemPosition(),Integer.parseInt(anhoStr),cpuStr);
-        ListaComputadoras.updateComputadora(posicion,pcA);
-        finish();
+            Computadora pcA = new Computadora(activoStr, (marca.getSelectedItemPosition() - 1), Integer.parseInt(anhoStr), cpuStr);
+            ListaComputadoras.updateComputadora(posicion, pcA);
+            finish();
+        }
     }
     //Delete computer
     public void deleteComputer(MenuItem menuItem){

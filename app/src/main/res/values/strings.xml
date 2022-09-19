@@ -4,6 +4,7 @@
     <string name="nuevo_name">Nuevo</string>
     <string name="actualizar_name">Actualizar</string>
     <string-array name="listaMarcas">
+        <item>Marca:</item>
         <item>ACER</item>
         <item>ASUS</item>
         <item>CORSAIR</item>

@@ -26,6 +26,7 @@ public class ComputadoraFormActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_computadora);
+        marca = findViewById(R.id.editMarca);
     }
 
     //VINCULAMOS EL MENU CON EL ACTIVITY
@@ -55,6 +56,8 @@ public class ComputadoraFormActivity extends AppCompatActivity {
         }else if(ListaComputadoras.existComutadora(activoStr)){
             activo.setError("Este activo ya existe");
             saveAble=false;
+        }else if(marcaStr.equals("Marca:")){
+            Toast.makeText(this, "Tiene que llenar todos los campos", Toast.LENGTH_SHORT).show();
         }
         else if(anhoStr.isEmpty()){
             anho.setError("Ingrese año");
@@ -68,7 +71,7 @@ public class ComputadoraFormActivity extends AppCompatActivity {
         }
 
         if(saveAble){
-            Computadora computadora=new Computadora(activoStr,marca.getSelectedItemPosition(),Integer.parseInt(anhoStr),cpuStr);
+            Computadora computadora=new Computadora(activoStr,(marca.getSelectedItemPosition()-1),Integer.parseInt(anhoStr),cpuStr);
             ListaComputadoras.addComputadora(computadora);
             finish();
         }
