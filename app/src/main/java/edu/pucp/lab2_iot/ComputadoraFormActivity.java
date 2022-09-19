@@ -62,7 +62,11 @@ public class ComputadoraFormActivity extends AppCompatActivity {
         else if(anhoStr.isEmpty()){
             anho.setError("Ingrese año");
             saveAble=false;
-        }else if(cpuStr.isEmpty()){
+        }else if(Integer.parseInt(anhoStr)>2022 ||Integer.parseInt(anhoStr)<1960 ){
+            anho.setError("Año no valido");
+            saveAble=false;
+        }
+        else if(cpuStr.isEmpty()){
             saveAble=false;
             CPU.setError("Ingrese CPU");
             Toast.makeText(this, "Debe llenar todos los campos", Toast.LENGTH_SHORT).show();

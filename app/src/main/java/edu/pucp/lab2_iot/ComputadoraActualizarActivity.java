@@ -53,7 +53,10 @@ public class ComputadoraActualizarActivity extends AppCompatActivity {
 
         if(activoStr.isEmpty()  || anhoStr.isEmpty() || cpuStr.isEmpty() || marcaStr.equals("Marca:")){
             Toast.makeText(this, "Debe llenar todos los campos", Toast.LENGTH_SHORT).show();
-        } else {
+        } else if(Integer.parseInt(anhoStr)>2022 ||Integer.parseInt(anhoStr)<1960 ){
+            anho.setError("Año no valido");
+        }
+        else {
 
             Computadora pcA = new Computadora(activoStr, (marca.getSelectedItemPosition() - 1), Integer.parseInt(anhoStr), cpuStr);
             ListaComputadoras.updateComputadora(posicion, pcA);
