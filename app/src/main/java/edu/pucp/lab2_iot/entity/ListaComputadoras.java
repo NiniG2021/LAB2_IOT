@@ -4,20 +4,28 @@ import java.util.ArrayList;
 
 public class ListaComputadoras {
 
-    public static int computadoras2022 = 0;
 
     public static ArrayList<Computadora> listaComputadoras= new ArrayList<>();
 
     public static ArrayList<Computadora> getListaComputadoras(){return listaComputadoras;}
 
-    public static void addComputadora(Computadora computadora){
-        listaComputadoras.add(computadora);
-        if(computadora.getAnho()==2022){
-            computadoras2022++;
+    public static int ret2022(){
+        int j = 0;
+        for(Computadora i : listaComputadoras){
+            if(i.getAnho()==2022){
+                j++;
+            }
         }
+        return j;
     }
 
-    public static void deleteComputadora(Computadora computadora){listaComputadoras.remove(computadora);}
+    public static void addComputadora(Computadora computadora){
+        listaComputadoras.add(computadora);
+    }
+
+    public static void deleteComputadora(Computadora computadora){
+        listaComputadoras.remove(computadora);
+    }
 
     //For search specific Computer
     public static ArrayList<String>  searchComputadora(String activo){
