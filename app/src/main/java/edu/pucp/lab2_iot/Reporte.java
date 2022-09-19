@@ -28,7 +28,7 @@ public class Reporte extends AppCompatActivity {
 
         }else{
             TextView textView= findViewById(R.id.reporte_computadoras);
-            textView.setText("No se registra computadoras");
+            textView.setText("No se registran");
 
         }
 
@@ -38,7 +38,7 @@ public class Reporte extends AppCompatActivity {
 
         }else{
             TextView textView= findViewById(R.id.reporte_monitor);
-            textView.setText("Monitores: No se registran monitores");
+            textView.setText("Monitores: No se registran\n");
 
         }
 
@@ -48,7 +48,7 @@ public class Reporte extends AppCompatActivity {
 
         }else{
             TextView textView= findViewById(R.id.reporte_teclado);
-            textView.setText("Teclados: No se registran teclados");
+            textView.setText("Teclados: No se registran");
 
         }
 
