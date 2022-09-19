@@ -46,10 +46,12 @@
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MonitorForm"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MonitorMenu"/>
         <activity
             android:name=".MonitorMenu"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
