@@ -56,7 +56,7 @@ public class ListarTecladosActivity extends AppCompatActivity {
             //actualizar al hacer click
             listviewtecl.setOnItemClickListener(new AdapterView.OnItemClickListener(){
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Toast.makeText(ListarTecladosActivity.this, Integer.toString(position), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(ListarTecladosActivity.this, Integer.toString(position), Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(ListarTecladosActivity.this,ActualizarTecladoActivity.class);
                     intent.putExtra("tecladoActualizar",ListaTeclados.getListTeclados().get(position));
                     intent.putExtra("posicion",Integer.toString(position));
@@ -180,4 +180,31 @@ public class ListarTecladosActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
+    @Override
+    protected void onResume() {
+        if(!ListaTeclados.getListTeclados().isEmpty()){
+            ((TextView) findViewById(R.id.msjTeclado)).setText("");
+            ((TextView) findViewById(R.id.msjTeclado)).setTextSize(0);
+
+            ListView listviewtecl = findViewById(R.id.lista_Teclados);
+            ArrayAdapter<String> array = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,ListaTeclados.descripTeclados());
+            listviewtecl.setAdapter(array);
+
+            //actualizar al hacer click
+            listviewtecl.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    //Toast.makeText(ListarTecladosActivity.this, Integer.toString(position), Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(ListarTecladosActivity.this,ActualizarTecladoActivity.class);
+                    intent.putExtra("tecladoActualizar",ListaTeclados.getListTeclados().get(position));
+                    intent.putExtra("posicion",Integer.toString(position));
+                    startActivity(intent);
+                }
+            });
+
+        }else{
+            ((TextView) findViewById(R.id.msjTeclado)).setText("No hay teclados registrados");
+            ((TextView) findViewById(R.id.msjTeclado)).setTextSize(27);
+        }
+        super.onResume();
+    }
 }

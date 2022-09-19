@@ -39,7 +39,7 @@ public class ListaTeclados implements Serializable {
                 desc+="PC: "+tecl.getPcactiv()+"\n";
                 desc+="Marca: "+tecl.getMarca()+"\n";
                 desc+="Año: "+tecl.getAnio()+"\n";
-                desc+="Idioma"+tecl.getIdioma()+"\n";
+                desc+="Idioma:"+tecl.getIdioma()+"\n";
                 desc+="Modelo: "+tecl.getModelo()+"\n";
                 ret.add(desc);
                 return ret;
@@ -58,10 +58,19 @@ public class ListaTeclados implements Serializable {
             desc+="PC: "+tecl.getPcactiv()+"\n";
             desc+="Marca: "+tecl.getMarca()+"\n";
             desc+="Año: "+tecl.getAnio()+"\n";
-            desc+="Idioma"+tecl.getIdioma()+"\n";
+            desc+="Idioma: "+tecl.getIdioma()+"\n";
             desc+="Modelo: "+tecl.getModelo()+"\n";
             listaTecl.add(desc);
         }
         return listaTecl;
+    }
+
+    public static boolean existTeclado(String activo){
+        for(Teclado i : listTeclados){
+            if(i.getActivo().equals(activo)){
+                return true;
+            }
+        }
+        return false;
     }
 }

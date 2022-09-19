@@ -44,7 +44,7 @@ public class ListaMonitores {
 
     public static boolean existMonitor(String activo){
         for(Monitor i : listaMonitores){
-            if(i.getActivo().equalsIgnoreCase(activo)){
+            if(i.getActivo().equals(activo)){
                 return true;
             }
         }
