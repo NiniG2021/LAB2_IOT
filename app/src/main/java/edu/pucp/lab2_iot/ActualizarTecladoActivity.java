@@ -197,13 +197,11 @@ public class ActualizarTecladoActivity extends AppCompatActivity {
                 builder.setTitle("Esta seguro que desea borrar?");
 
 
-
                 builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         ListaTeclados.deleteTeclado(ListaTeclados.getListTeclados().get(position));
-                        Intent intent2 = new Intent(ActualizarTecladoActivity.this,ListarTecladosActivity.class);
-                        startActivity(intent2);
+                        finish();
                     }
                 });
                 builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
