@@ -32,6 +32,8 @@ public class ComputadoraActualizarActivity extends AppCompatActivity {
         marca=findViewById(R.id.pc_marca_update);
         anho=findViewById(R.id.pc_anho_update);
         CPU=findViewById(R.id.pc_input_update);
+        activo.setEnabled(false);
+
 
         Intent intent=getIntent();
         posicion = Integer.parseInt(intent.getStringExtra("position"));
@@ -54,8 +56,7 @@ public class ComputadoraActualizarActivity extends AppCompatActivity {
 
         Computadora pcA= new Computadora(activoStr,marca.getSelectedItemPosition(),Integer.parseInt(anhoStr),cpuStr);
         ListaComputadoras.updateComputadora(posicion,pcA);
-        Intent intent1=new Intent(this,ComputadoraListActivity.class);
-        startActivity(intent1);
+        finish();
     }
     //Delete computer
     public void deleteComputer(MenuItem menuItem){
@@ -66,8 +67,7 @@ public class ComputadoraActualizarActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialogInterface, int i) {
                 ListaComputadoras.deleteComputadora(ListaComputadoras.getListaComputadoras().get(posicion));
                 Toast.makeText(ComputadoraActualizarActivity.this, "Eliminado", Toast.LENGTH_SHORT).show();
-                Intent intent1=new Intent(ComputadoraActualizarActivity.this,ComputadoraListActivity.class);
-                startActivity(intent1);
+                finish();
             }
         });
         alertDialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {

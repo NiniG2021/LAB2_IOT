@@ -32,7 +32,7 @@ public class ListaComputadoras {
         ArrayList<String> lista = new ArrayList<>();
         String temp = "";
         for(Computadora n : listaComputadoras){
-            if(n.getActivo().equalsIgnoreCase(activo)){
+            if(n.getActivo().equals(activo)){
                 temp="";
                 temp+="Activo: "+n.getActivo()+"\n";
                 temp+="Marca: "+marcaValue(n.getMarca())+"\n";
@@ -86,10 +86,19 @@ public class ListaComputadoras {
 
     public static boolean existComutadora(String activo){
         for(Computadora i : listaComputadoras){
-            if(i.getActivo().equalsIgnoreCase(activo)){
+            if(i.getActivo().equals(activo)){
                 return true;
             }
         }
         return false;
+    }
+
+    public static int indexActivo(String activo){
+        for(int i = 0; i<listaComputadoras.size(); i++){
+            if(listaComputadoras.get(i).getActivo().equals(activo)){
+                return i;
+            }
+        }
+        return -1;
     }
 }

@@ -52,7 +52,11 @@ public class ComputadoraFormActivity extends AppCompatActivity {
         if(activoStr.isEmpty()){
             activo.setError("Ingrese activo");
             saveAble=false;
-        }else if(anhoStr.isEmpty()){
+        }else if(ListaComputadoras.existComutadora(activoStr)){
+            activo.setError("Este activo ya existe");
+            saveAble=false;
+        }
+        else if(anhoStr.isEmpty()){
             anho.setError("Ingrese año");
             saveAble=false;
         }else if(cpuStr.isEmpty()){
@@ -66,9 +70,7 @@ public class ComputadoraFormActivity extends AppCompatActivity {
         if(saveAble){
             Computadora computadora=new Computadora(activoStr,marca.getSelectedItemPosition(),Integer.parseInt(anhoStr),cpuStr);
             ListaComputadoras.addComputadora(computadora);
-
-            Intent intent=new Intent(this,ComputadoraListActivity.class);
-            startActivity(intent);
+            finish();
         }
 
 

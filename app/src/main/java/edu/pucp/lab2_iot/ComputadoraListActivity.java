@@ -25,6 +25,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
+import edu.pucp.lab2_iot.entity.Computadora;
 import edu.pucp.lab2_iot.entity.ListaComputadoras;
 
 public class ComputadoraListActivity extends AppCompatActivity {
@@ -43,8 +44,28 @@ public class ComputadoraListActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        ListView listView=findViewById(R.id.lista_Computadoras);
+
+
         //to list all the computers
         listComputer();
+
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //Toast.makeText(ComputadoraListActivity.this, Integer.toString(position), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(ComputadoraListActivity.this, ComputadoraActualizarActivity.class);
+                //intent.putExtra("computerToUpdate", ListaComputadoras.getListaComputadoras().get(position));
+
+                String text = parent.getItemAtPosition(position).toString();
+                text = text.substring(text.indexOf(":")+1, text.indexOf("\n"));
+                int pos=ListaComputadoras.indexActivo(text.trim());
+                intent.putExtra("position",""+pos);
+                //Toast.makeText(ComputadoraListActivity.this, ""+pos, Toast.LENGTH_SHORT).show();
+                //intent.putExtra("actionForm","updateComputer");
+                startActivity(intent);
+            }
+        });
     }
 
 
@@ -91,34 +112,23 @@ public class ComputadoraListActivity extends AppCompatActivity {
         alertDialog.setPositiveButton("Buscar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                String computerSearch= input.getText().toString();
+                String computerSearch= input.getText().toString().trim();
                 ArrayList<String> result=ListaComputadoras.searchComputadora(computerSearch);
                 ListView listView=findViewById(R.id.lista_Computadoras);
-                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(ComputadoraListActivity.this, android.R.layout.simple_list_item_1,result);
-                listView.setAdapter(arrayAdapter);
+
                 if(!result.isEmpty()){
 
                     textView.setText("Resultados de busqueda");
                     textView.setTextSize(24);
 
-                    Integer lugar=ListaComputadoras.obtenerPosicion(computerSearch);
-                    if(lugar!=null){
-                        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                //Toast.makeText(ComputadoraListActivity.this, Integer.toString(position), Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(ComputadoraListActivity.this, ComputadoraActualizarActivity.class);
-                                //intent.putExtra("computerToUpdate", ListaComputadoras.getListaComputadoras().get(position));
-                                intent.putExtra("position",Integer.toString(position));
-                                //intent.putExtra("actionForm","updateComputer");
-                                startActivity(intent);
-                            }
-                        });
-                    }
+
                 }else{
-                    textView.setText("NO se encontraron resultados de busqueda");
+                    textView.setText("No se encontraron resultados de busqueda");
                     textView.setTextSize(24);
 
                 }
+                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(ComputadoraListActivity.this, android.R.layout.simple_list_item_1,result);
+                listView.setAdapter(arrayAdapter);
             }
         });
         alertDialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
@@ -147,16 +157,13 @@ public class ComputadoraListActivity extends AppCompatActivity {
             //Put the adapter on the UI list element
             listView.setAdapter(arrayAdapter);
 
-            listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    //Toast.makeText(ComputadoraListActivity.this, Integer.toString(position), Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(ComputadoraListActivity.this, ComputadoraActualizarActivity.class);
-                    //intent.putExtra("computerToUpdate", ListaComputadoras.getListaComputadoras().get(position));
-                    intent.putExtra("position",Integer.toString(position));
-                    //intent.putExtra("actionForm","updateComputer");
-                    startActivity(intent);
-                }
-            });
+
         }
+    }
+
+    @Override
+    protected void onResume() {
+        listComputer();
+        super.onResume();
     }
 }

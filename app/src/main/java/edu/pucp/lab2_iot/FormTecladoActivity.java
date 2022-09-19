@@ -74,7 +74,7 @@ public class FormTecladoActivity extends AppCompatActivity {
                 //guardar la data del formulario(crear)
                 //obteniendo texto ingresado
                 EditText textoActivoTecl = findViewById(R.id.editText_Activo_teclado);
-                String textoStringActivo = textoActivoTecl.getText().toString();
+                String textoStringActivo = textoActivoTecl.getText().toString().trim();
                 if(textoStringActivo.isEmpty()){
                     fine=false;
                     textoActivoTecl.setError("No puede estar vacío");

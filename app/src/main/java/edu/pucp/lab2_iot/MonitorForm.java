@@ -77,7 +77,7 @@ public class MonitorForm extends AppCompatActivity {
     public void saveMonitor(MenuItem menuItem){
 
 
-        String activoStr = activo.getText().toString();
+        String activoStr = activo.getText().toString().trim();
         boolean shouldSave = true;
         if(activoStr.isEmpty()){
             shouldSave = false;
