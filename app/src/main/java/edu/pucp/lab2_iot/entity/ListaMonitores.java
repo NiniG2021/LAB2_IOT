@@ -113,6 +113,14 @@ public class ListaMonitores {
             }
         }
     }
+    public static void deleteMonitor(String activo){
 
+        for(int i=0; i<listaMonitores.size() ; i++){
+            if(listaMonitores.get(i).getActivo().equalsIgnoreCase(activo)){
+                listaMonitores.remove(i);
+                break;
+            }
+        }
+    }
 
 }

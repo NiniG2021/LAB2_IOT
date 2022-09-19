@@ -50,10 +50,10 @@ public class MonitorForm extends AppCompatActivity {
             monitor = ListaMonitores.findMonitorSave(monitActivo.trim());
             //Toast.makeText(this, monitor.getActivo(), Toast.LENGTH_SHORT).show();
             activo.setText(monitor.getActivo());
-            activoPC.setSelection(monitor.getPcActivo());
-            marca.setSelection(monitor.getMarca());
+            activoPC.setSelection(monitor.getPcActivo()+1);
+            marca.setSelection(monitor.getMarca()+1);
             modelo.setText(monitor.getModelo());
-            pulgadas.setSelection(monitor.getPulgadas());
+            pulgadas.setSelection(monitor.getPulgadas()+1);
             ano.setText(String.valueOf(monitor.getAno()));
 
             activo.setEnabled(false);
@@ -108,9 +108,14 @@ public class MonitorForm extends AppCompatActivity {
             modelo.setError("No puede estar vacío");
         }
 
+        if(marca.getSelectedItemPosition()==0 || pulgadas.getSelectedItemPosition()==0 || activoPC.getSelectedItemPosition()==0){
+            shouldSave = false;
+            Toast.makeText(this, "Tiene que llenar todos los campos", Toast.LENGTH_SHORT).show();
+        }
+
         if(shouldSave){
             Monitor monitor = new Monitor(
-                activoStr, activoPC.getSelectedItemPosition(),marca.getSelectedItemPosition(),pulgadas.getSelectedItemPosition(),anoint,modeloStr
+                activoStr, (activoPC.getSelectedItemPosition()-1),(marca.getSelectedItemPosition()-1),(pulgadas.getSelectedItemPosition()-1),anoint,modeloStr
             );
 
             if(monitActivo==null){

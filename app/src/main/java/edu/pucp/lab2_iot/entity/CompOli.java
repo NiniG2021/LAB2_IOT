@@ -4,16 +4,14 @@ import java.util.ArrayList;
 
 public class CompOli {
 
-    private static ArrayList<Object> listaComputadoras = new ArrayList<>();
+    private static ArrayList<Computadora> listaComputadoras = ListaComputadoras.getListaComputadoras();
 
-
-    //todo: Para hacer TESTS, se necesita implementar lo que está aqui
     public static ArrayList<String> retListaActivos(){
         ArrayList<String> ret = new ArrayList<>();
+        ret.add("PC activo:");
         ret.add("Ninguna");
-
-        for(Object i : listaComputadoras){
-            //ret.add(i.getActivo);
+        for(Computadora i : listaComputadoras){
+            ret.add(i.getActivo());
         }
         return ret;
     }
@@ -21,9 +19,9 @@ public class CompOli {
     public static String retActivoEquipo(int i){
         if(i==0){
             return  "ninguna";
+        }else{
+            return listaComputadoras.get(i-1).getActivo();
         }
-
-        return "";
     }
 
 }

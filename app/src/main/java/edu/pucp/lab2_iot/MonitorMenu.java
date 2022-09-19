@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -32,15 +33,7 @@ public class MonitorMenu extends AppCompatActivity {
         //ListaMonitores.addMonitor(prueba);
         ListView list = findViewById(R.id.listMonitors);
 
-        if(!ListaMonitores.returnList().isEmpty()){
-            ((TextView) findViewById(R.id.messageMonitor)).setText("");
-            ((TextView) findViewById(R.id.messageMonitor)).setTextSize(0);
-            ArrayAdapter<String> array = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,ListaMonitores.retDescpMonitores());
-            list.setAdapter(array);
-        }else{
-            ((TextView) findViewById(R.id.messageMonitor)).setText("No hay monitores registrados");
-            ((TextView) findViewById(R.id.messageMonitor)).setTextSize(27);
-        }
+        actLista();
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -53,8 +46,39 @@ public class MonitorMenu extends AppCompatActivity {
             }
         });
 
+        list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String act = adapterView.getItemAtPosition(i).toString();
+                final String actf = act.substring(act.indexOf(":")+1, act.indexOf("\n")).trim();
+                AlertDialog.Builder builder = new AlertDialog.Builder(MonitorMenu.this);
+                builder.setTitle("Eliminar");
+
+                builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        ListaMonitores.deleteMonitor(actf);
+                        actLista();
+                    }
+                });
+                builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+
+                builder.show();
+
+                return true;
+            }
+        });
+
+
 
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -123,17 +147,20 @@ public class MonitorMenu extends AppCompatActivity {
 
     @Override
     protected void onResume() {
+        actLista();
+        super.onResume();
+    }
+
+    private void actLista(){
+        ListView list = findViewById(R.id.listMonitors);
         if(!ListaMonitores.returnList().isEmpty()){
             ((TextView) findViewById(R.id.messageMonitor)).setText("");
             ((TextView) findViewById(R.id.messageMonitor)).setTextSize(0);
-
-            ListView list = findViewById(R.id.listMonitors);
-            ArrayAdapter<String> array = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,ListaMonitores.retDescpMonitores());
-            list.setAdapter(array);
         }else{
             ((TextView) findViewById(R.id.messageMonitor)).setText("No hay monitores registrados");
             ((TextView) findViewById(R.id.messageMonitor)).setTextSize(27);
         }
-        super.onResume();
+        ArrayAdapter<String> array = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,ListaMonitores.retDescpMonitores());
+        list.setAdapter(array);
     }
 }
