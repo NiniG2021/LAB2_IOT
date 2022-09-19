@@ -204,6 +204,9 @@ public class ListarTecladosActivity extends AppCompatActivity {
         }else{
             ((TextView) findViewById(R.id.msjTeclado)).setText("No hay teclados registrados");
             ((TextView) findViewById(R.id.msjTeclado)).setTextSize(27);
+            ListView listviewtecl = findViewById(R.id.lista_Teclados);
+            ArrayAdapter<String> array = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,ListaTeclados.descripTeclados());
+            listviewtecl.setAdapter(array);
         }
         super.onResume();
     }
