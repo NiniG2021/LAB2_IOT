@@ -32,7 +32,7 @@ public class MonitorMenu extends AppCompatActivity {
         //Monitor prueba = new Monitor("act",0, 1,0,10,"toyoya");
         //ListaMonitores.addMonitor(prueba);
         ListView list = findViewById(R.id.listMonitors);
-
+        setTitle("Monitor");
         actLista();
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {

@@ -55,8 +55,11 @@ public class MonitorForm extends AppCompatActivity {
             modelo.setText(monitor.getModelo());
             pulgadas.setSelection(monitor.getPulgadas()+1);
             ano.setText(String.valueOf(monitor.getAno()));
-
             activo.setEnabled(false);
+
+            setTitle("Actualizar");
+        } else{
+            setTitle("Nuevo");
         }
     }
 
