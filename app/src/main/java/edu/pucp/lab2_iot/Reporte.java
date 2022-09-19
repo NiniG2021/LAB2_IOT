@@ -2,25 +2,19 @@ package edu.pucp.lab2_iot;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
-import edu.pucp.lab2_iot.entity.Computadora;
 import edu.pucp.lab2_iot.entity.ListaComputadoras;
 import edu.pucp.lab2_iot.entity.ListaMonitores;
 import edu.pucp.lab2_iot.entity.ListaTeclados;
-import edu.pucp.lab2_iot.entity.Monitor;
 
 
-public class reporte extends AppCompatActivity {
+public class Reporte extends AppCompatActivity {
 
-    @SuppressLint("SetTextI18n")
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +23,7 @@ public class reporte extends AppCompatActivity {
 
         if(ListaComputadoras.getListaComputadoras().size() >0){
             String cantidad_computadoras = "-Total: "+ ListaComputadoras.getListaComputadoras().size();
+            cantidad_computadoras+= "\nDel año 2022: " + ListaComputadoras.computadoras2022;
             ((TextView)findViewById(R.id.reporte_computadoras)).setText(cantidad_computadoras);
 
         }else{

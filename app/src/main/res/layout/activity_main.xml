@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -39,7 +40,7 @@
         android:onClick="IraMonitor"
         android:id="@+id/button3"
         android:layout_width="160dp"
-        android:layout_height="46dp"
+        android:layout_height="49dp"
         android:layout_marginTop="16dp"
         android:text="Monitor"
         app:layout_constraintEnd_toEndOf="@+id/teclado_button"
@@ -48,12 +49,12 @@
         app:layout_constraintTop_toBottomOf="@+id/teclado_button" />
 
     <Button
+        android:onClick="IraReporte"
         android:id="@+id/button5"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="200dp"
         android:layout_marginBottom="109dp"
-        android:onClick="IraReporte"
         android:text="Reporte"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/button3"

@@ -4,11 +4,18 @@ import java.util.ArrayList;
 
 public class ListaComputadoras {
 
+    public static int computadoras2022 = 0;
+
     public static ArrayList<Computadora> listaComputadoras= new ArrayList<>();
 
     public static ArrayList<Computadora> getListaComputadoras(){return listaComputadoras;}
 
-    public static void addComputadora(Computadora computadora){listaComputadoras.add(computadora);}
+    public static void addComputadora(Computadora computadora){
+        listaComputadoras.add(computadora);
+        if(computadora.getAnho()==2022){
+            computadoras2022++;
+        }
+    }
 
     public static void deleteComputadora(Computadora computadora){listaComputadoras.remove(computadora);}
 
